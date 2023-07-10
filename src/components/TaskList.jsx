@@ -1,27 +1,13 @@
-import Task from "./Task";
+/* import Task from "./Task";
 
-export default function TaskList(){
-    const tareas = [{
-        nombreTarea: "Tarea 1"
-    },{
-        nombreTarea: "Tarea 2"
-    },{
-        nombreTarea: "Tarea 3"
-    },{
-        nombreTarea: "Tarea 4"
-    },{
-        nombreTarea: "Tarea 5"
-    },
-]
-
-
-    return (
-        <div>
-            {tareas.map(tarea =>{
-                return(
-                <Task id="" nombreTarea={tarea.nombreTarea}></Task>
-                )
-            })}
-        </div>
-    )
+export default function TaskList(props) {
+    const {tareasList} = props;
+  return (
+    <div>
+      {tareasList.map((tarea) => {
+        return <Task key={tarea.id} id={tarea.id} nombreTarea={tarea.nombreTarea} estadoTarea ={tareasList.estadoTarea}></Task>;
+      })}
+    </div>
+  );
 }
+ */

@@ -1,5 +1,6 @@
 
-export default function Task({nombreTarea}){
+export default function Task(props){
+    const {nombreTarea, estadoTarea, descripcion } = props;
 
     function strikeThrough(text) {
         return text
@@ -8,24 +9,16 @@ export default function Task({nombreTarea}){
           .join('')
       }
 
-    const verificarTarea =(nombreTarea, estadoTarea)=>{
-        if(estadoTarea){
-            return nombreTarea
-        }else{
-            return strikeThrough(nombreTarea)
-        }
-    }
-
 
     return(
     <div className="task">
         <form>
         <input id="checkTarea" type="checkbox" />
-        <label>{verificarTarea(nombreTarea, true)}</label>
+        <label>{nombreTarea}</label>
         <button>Editar</button>
         <button>Eliminar</button>
         </form>
-        
+        <p>{descripcion}</p>
     </div>
     )
 }
