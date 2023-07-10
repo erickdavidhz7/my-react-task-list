@@ -43,7 +43,7 @@ export default function Header() {
       </form>
       <div>
         {tareasList.map((tarea, id) => {
-          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion}></Task>;
+          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion} stateChanger={setTarea}></Task>;
         })}
       </div>
     </div>
