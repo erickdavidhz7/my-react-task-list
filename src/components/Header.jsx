@@ -1,49 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Task from "./Task";
+import { useTasks } from "../hooks/useTasks";
 
 export default function Header() {
-  const [tareasList, setTarea] = useState([]);
-  let tareaID = 1;
+  const [tareasList, addTarea] = useTasks();
+  const [input, setInput] = useState("");
   const handleNuevaTareaClick = () => {
-    let nuevaTarea = document.getElementById("txt1").value;
-
-    const tareaObjeto = {
-      nombreTarea: nuevaTarea,
-      descripcion: "Descripción: template",
-      estadoTarea: false,
-    };
-
-    let nuevaTareasList = [...tareasList, tareaObjeto];
-
-    setTarea([...tareasList, nuevaTareasList]);
-    tareaID += 1;
-    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
+    addTarea(input);
   };
-
-  useEffect(() => {
-    const localStorageData = localStorage.getItem("tareasList");
-    if (localStorageData) {
-      try {
-        const storedTareas = JSON.parse(localStorageData);
-        setTarea(storedTareas);
-      } catch (err) {
-        console.err("Error parsing new taks from localStorage");
-      }
-    }
-  }, []);
 
   return (
     <div className="headerComp">
-      <h1>Listado de Tareas</h1>
-      <form id="formularioTarea" action="">
-        <input id="txt1" type="text" name="txt1" />
-        <button onClick={handleNuevaTareaClick} id="boton">
-          Añadir
-        </button>
-      </form>
+      <h1 className="titulo">Listado de Tareas</h1>
+      <div className="inputBar">
+        <form id="formularioTarea" action="">
+          <input id="txt1" type="text" onChange={(e) => setInput(e.target.value)} name="txt1" placeholder="Ingrese nueva tarea" />
+          <button onClick={handleNuevaTareaClick} id="boton">
+            Añadir
+          </button>
+        </form>
+      </div>
       <div>
         {tareasList.map((tarea, id) => {
-          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion} stateChanger={setTarea}></Task>;
+          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion}></Task>;
         })}
       </div>
     </div>

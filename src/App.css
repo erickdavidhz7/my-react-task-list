@@ -1,62 +1,103 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  display: flex;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+button {
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #dfdfdf;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+button:hover {
+  border-color: #9a9eee;
+  background-color: #9a9eee;
+  color: white;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
-.headerComp{
+.headerComp {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-
+  border-style: solid;
+  border-width: medium;
+  border-radius: 10px;
+  margin: auto;
 }
 
-#formularioTarea{
-display: flex;
-justify-content: center;
+.titulo {
+  font-size: 2.5em;
 }
 
-#txt1{
+#formularioTarea {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+
+#txt1 {
+  font-size: 1.25em;
+}
+
+#txt1 {
   border-radius: 5px;
 }
-#boton{
-margin-left: 10px
-;}
+
+#boton {
+  margin-left: 10px;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(0, 0, 0);
+  margin: auto;
+}
+
+.inputBar {
+  margin-bottom: 15px;
+}
+
+#editarTarea {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#eliminarTarea{
+  margin-right: 15px;
+}
+
+#nombreTarea {
+  font-size: 1.3em;
+}
+
+#tituloTarea {
+  margin-top: 15px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+#botonesTarea {
+  margin-top: 15px;
+}
+
+#descripcionTarea {
+  text-align: center;
+  grid-column: 1/3;
+  grid-row: 2;
+}
