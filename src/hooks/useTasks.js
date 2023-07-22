@@ -21,19 +21,26 @@ export function useTasks() {
   }
 
   function deleteTarea(tareaid) {
-    let nuevaTareasList = tareasList.filter(tarea => tarea.id !== tareaid);
+    let nuevaTareasList = tareasList.filter((tarea) => tarea.id !== tareaid);
     setTarea(nuevaTareasList);
-    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
 
-  function editarTarea(tareaid, nuevoNombreTarea, nuevaDescripcionTarea){
+  function editarTarea(tareaid, nuevoNombreTarea, nuevaDescripcionTarea) {
     let nuevaTareasList = [...tareasList];
-    const indiceTarea = nuevaTareasList.findIndex(tarea => tareaid === tarea.id)
+    const indiceTarea = nuevaTareasList.findIndex((tarea) => tareaid === tarea.id);
     nuevaTareasList[indiceTarea].nombre = nuevoNombreTarea;
     nuevaTareasList[indiceTarea].descripcion = nuevaDescripcionTarea;
     setTarea(nuevaTareasList);
-    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
+  }
 
+  function checkTarea(tareaid){
+    let nuevaTareasList = [...tareasList];
+    const indiceTarea = nuevaTareasList.findIndex((tarea) => tareaid === tarea.id);
+    nuevaTareasList[indiceTarea].estado = !nuevaTareasList[indiceTarea].estado;
+    setTarea(nuevaTareasList);
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
 
   useEffect(() => {
@@ -46,8 +53,7 @@ export function useTasks() {
         console.error("Error parsing new taks from localStorage");
       }
     }
-  }, []); 
+  }, []);
 
-
-  return [tareasList, setTarea, addTarea, deleteTarea, editarTarea];
+  return [tareasList, setTarea, addTarea, deleteTarea, editarTarea, checkTarea];
 }
