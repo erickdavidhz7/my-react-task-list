@@ -1,9 +1,8 @@
-import { useState } from "react";
-import Task from "./Task";
-import { useTasks } from "../hooks/useTasks";
+import { useContext, useState } from "react";
+import { MiContexto } from "../context/crearContexto";
 
 export default function Header() {
-  const [tareasList, addTarea] = useTasks();
+  const {addTarea} = useContext(MiContexto);
   const [input, setInput] = useState("");
   const handleNuevaTareaClick = () => {
     addTarea(input);
@@ -15,16 +14,12 @@ export default function Header() {
       <div className="inputBar">
         <form id="formularioTarea" action="">
           <input id="txt1" type="text" onChange={(e) => setInput(e.target.value)} name="txt1" placeholder="Ingrese nueva tarea" />
-          <button onClick={handleNuevaTareaClick} id="boton">
+          <button type="button" onClick={handleNuevaTareaClick} id="boton"> {/* ponerle atributo type button para evitar que la página se refresque al presionar el botón */}
             Añadir
           </button>
         </form>
       </div>
-      <div>
-        {tareasList.map((tarea, id) => {
-          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion}></Task>;
-        })}
-      </div>
+
     </div>
   );
 }

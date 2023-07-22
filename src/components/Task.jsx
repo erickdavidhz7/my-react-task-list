@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MiContexto } from "../context/crearContexto";
 
 export default function Task(props) {
-  const { nombreTarea, estadoTarea, descripcion, stateChanger} = props;
-  const { tareasList } = props;
+  const {idTarea, nombreTarea, estadoTarea, descripcion } = props;
+  const {deleteTarea} = useContext(MiContexto);
   const [checkeado, setCheckeado] = useState(false);
 
   const handleChange = (event) => {
@@ -16,16 +17,9 @@ export default function Task(props) {
       .join("");
   };
 
-  const editarTareaDescripcion = (nombreTarea) => {
-    const nuevoEstadoTarea = tareasList.map((tarea) => {
-      if (tarea.nombreTarea === nombreTarea) {
-        return { ...tarea, descripcion: "¡Se ha cambiado la descripción!" };
-      }
-      return tarea;
-    });
-
-    stateChanger(nuevoEstadoTarea);
-  };
+  const handleEliminarTareaClick = () => {
+    deleteTarea(idTarea);
+  }
 
   return (
     <div className="task">
@@ -34,8 +28,10 @@ export default function Task(props) {
         <label id="nombreTarea">{checkeado ? strikeThrough(nombreTarea) : nombreTarea}</label>
       </form>
       <div id="botonesTarea">
-      <button id="editarTarea" onClick={() => editarTareaDescripcion(nombreTarea)}>Editar</button>
-      <button id="eliminarTarea">Eliminar</button>
+        <button id="editarTarea">Editar</button>
+        <button type="button" id="eliminarTarea" onClick={(handleEliminarTareaClick)}>
+          Eliminar
+        </button>
       </div>
       <p id="descripcionTarea">{descripcion}</p>
     </div>

@@ -1,35 +1,49 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
-export function useTasks(){
-    const [tareasList, setTarea] = useState([]);
-    const [id, setId] = useState(0);
+export function useTasks() {
+  const defaultId = localStorage.getItem("id") ? parseInt(localStorage.getItem("id")) : 0;
+  const [tareasList, setTarea] = useState([]);
+  const [id, setId] = useState(defaultId);
 
-    function addTarea(nuevaTarea){
-        const tareaObjeto = {
-            tareaid: id,
-            nombreTarea: nuevaTarea,
-            descripcion: "Descripción: template",
-            estadoTarea: false,
-          };
-      
-          let nuevaTareasList = [...tareasList, tareaObjeto];
-          setTarea([...tareasList, nuevaTareasList]);
-          setId((prev) => prev + 1);
-          localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
+  function addTarea(nuevaTarea) {
+    const tareaObjeto = {
+      tareaId: id,
+      nombreTarea: nuevaTarea,
+      descripcion: "Descripción: template",
+      estadoTarea: false,
+    };
 
+    let nuevaTareasList = [...tareasList, tareaObjeto];
+    setTarea(nuevaTareasList);
+    setId(id + 1);
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
+    localStorage.setItem("id", id + 1);
+  }
+
+  function deleteTarea(tareaid) {
+    let nuevaTareasList = [...tareasList];
+    console.log(nuevaTareasList);
+    nuevaTareasList.splice(tareaid, 1);
+    setTarea(nuevaTareasList);
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
+  }
+
+  function editarTarea(){
+    
+  }
+
+  useEffect(() => {
+    const localStorageData = localStorage.getItem("tareasList");
+    if (localStorageData) {
+      try {
+        const storedTareas = JSON.parse(localStorageData);
+        setTarea(storedTareas);
+      } catch (err) {
+        console.error("Error parsing new taks from localStorage");
+      }
     }
+  }, []); 
 
-    useEffect(() => {
-        const localStorageData = localStorage.getItem("tareasList");
-        if (localStorageData) {
-          try {
-            const storedTareas = JSON.parse(localStorageData);
-            setTarea(storedTareas);
-          } catch (err) {
-            console.err("Error parsing new taks from localStorage");
-          }
-        }
-      }, []);
 
-    return [tareasList, addTarea]
+  return [tareasList, setTarea, addTarea, deleteTarea];
 }
