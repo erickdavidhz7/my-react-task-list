@@ -22,14 +22,19 @@ export function useTasks() {
 
   function deleteTarea(tareaid) {
     let nuevaTareasList = [...tareasList];
-    console.log(nuevaTareasList);
     nuevaTareasList.splice(tareaid, 1);
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
   }
 
-  function editarTarea(){
-    // Template temporal
+  function editarTarea(tareaid, nuevoNombreTarea, nuevaDescripcionTarea){
+    let nuevaTareasList = [...tareasList];
+    console.log(nuevaTareasList);
+    nuevaTareasList[tareaid].nombreTarea = nuevoNombreTarea;
+    nuevaTareasList[tareaid].descripcion = nuevaDescripcionTarea;
+    setTarea(nuevaTareasList);
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
+
   }
 
   useEffect(() => {
