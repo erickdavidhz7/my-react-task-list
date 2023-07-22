@@ -7,10 +7,10 @@ export function useTasks() {
 
   function addTarea(nuevaTarea) {
     const tareaObjeto = {
-      tareaId: id,
-      nombreTarea: nuevaTarea,
+      id: id,
+      nombre: nuevaTarea,
       descripcion: "Descripción: template",
-      estadoTarea: false,
+      estado: false,
     };
 
     let nuevaTareasList = [...tareasList, tareaObjeto];
@@ -21,17 +21,16 @@ export function useTasks() {
   }
 
   function deleteTarea(tareaid) {
-    let nuevaTareasList = [...tareasList];
-    nuevaTareasList.splice(tareaid, 1);
+    let nuevaTareasList = tareasList.filter(tarea => tarea.id !== tareaid);
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
   }
 
   function editarTarea(tareaid, nuevoNombreTarea, nuevaDescripcionTarea){
     let nuevaTareasList = [...tareasList];
-    console.log(nuevaTareasList);
-    nuevaTareasList[tareaid].nombreTarea = nuevoNombreTarea;
-    nuevaTareasList[tareaid].descripcion = nuevaDescripcionTarea;
+    const indiceTarea = nuevaTareasList.findIndex(tarea => tareaid === tarea.id)
+    nuevaTareasList[indiceTarea].nombre = nuevoNombreTarea;
+    nuevaTareasList[indiceTarea].descripcion = nuevaDescripcionTarea;
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList)); 
 

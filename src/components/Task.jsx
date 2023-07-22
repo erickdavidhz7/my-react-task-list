@@ -24,10 +24,7 @@ export default function Task(props) {
   };
 
   const handleEditarTareaClick = event => {
-        // 👇️ toggle shown state
         setIsShown(current => !current);
-
-        // 👇️ or simply set it t
   }
 
 
