@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import { MiContexto } from "../context/crearContexto";
 
 export default function Task(props) {
-  const {idTarea, nombreTarea, estadoTarea, descripcion } = props;
-  const {deleteTarea} = useContext(MiContexto);
+  const { idTarea, nombreTarea, estadoTarea, descripcion } = props;
+  const { deleteTarea } = useContext(MiContexto);
   const [checkeado, setCheckeado] = useState(false);
 
   const handleChange = (event) => {
@@ -19,6 +19,10 @@ export default function Task(props) {
 
   const handleEliminarTareaClick = () => {
     deleteTarea(idTarea);
+  };
+
+  const handleEditarTareaClick = () => {
+    
   }
 
   return (
@@ -28,8 +32,8 @@ export default function Task(props) {
         <label id="nombreTarea">{checkeado ? strikeThrough(nombreTarea) : nombreTarea}</label>
       </form>
       <div id="botonesTarea">
-        <button id="editarTarea">Editar</button>
-        <button type="button" id="eliminarTarea" onClick={(handleEliminarTareaClick)}>
+        <button type="button" id="editarTarea">Editar</button>
+        <button type="button" id="eliminarTarea" onClick={handleEliminarTareaClick}>
           Eliminar
         </button>
       </div>

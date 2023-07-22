@@ -29,7 +29,7 @@ export function useTasks() {
   }
 
   function editarTarea(){
-    
+    // Template temporal
   }
 
   useEffect(() => {
@@ -45,5 +45,5 @@ export function useTasks() {
   }, []); 
 
 
-  return [tareasList, setTarea, addTarea, deleteTarea];
+  return [tareasList, setTarea, addTarea, deleteTarea, editarTarea];
 }
