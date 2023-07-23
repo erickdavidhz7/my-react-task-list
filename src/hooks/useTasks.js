@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 export function useTasks() {
-  const defaultId = localStorage.getItem("id") ? parseInt(localStorage.getItem("id")) : 0;
+  //const defaultId = localStorage.getItem("id") ? parseInt(localStorage.getItem("id")) : 0;
+  let defaultId = localStorage.getItem("id") ?? 0; // nullish coalescing/ coalescencia nula
+  defaultId = parseInt(defaultId);
   const [tareasList, setTarea] = useState([]);
   const [id, setId] = useState(defaultId);
 
@@ -20,24 +22,24 @@ export function useTasks() {
     localStorage.setItem("id", id + 1);
   }
 
-  function deleteTarea(tareaid) {
-    let nuevaTareasList = tareasList.filter((tarea) => tarea.id !== tareaid);
+  function deleteTarea(id) {
+    let nuevaTareasList = tareasList.filter((tarea) => tarea.id !== id);
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
 
-  function editarTarea(tareaid, nuevoNombreTarea, nuevaDescripcionTarea) {
+  function editarTarea(id, nombre, decripcion) {
     let nuevaTareasList = [...tareasList];
-    const indiceTarea = nuevaTareasList.findIndex((tarea) => tareaid === tarea.id);
-    nuevaTareasList[indiceTarea].nombre = nuevoNombreTarea;
-    nuevaTareasList[indiceTarea].descripcion = nuevaDescripcionTarea;
+    const indiceTarea = nuevaTareasList.findIndex((tarea) => id === tarea.id);
+    nuevaTareasList[indiceTarea].nombre = nombre;
+    nuevaTareasList[indiceTarea].descripcion = decripcion;
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
 
-  function checkTarea(tareaid){
-    let nuevaTareasList = [...tareasList];
-    const indiceTarea = nuevaTareasList.findIndex((tarea) => tareaid === tarea.id);
+  function checkTarea(id) {
+    let nuevaTareasList = [...tareasList]; // operador de dispersión/ spread operator
+    const indiceTarea = nuevaTareasList.findIndex((tarea) => id === tarea.id);
     nuevaTareasList[indiceTarea].estado = !nuevaTareasList[indiceTarea].estado;
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));

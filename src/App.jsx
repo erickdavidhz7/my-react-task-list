@@ -1,16 +1,16 @@
 import "./App.css";
 import Header from "./components/Header";
 import TaskList from "./components/TaskList";
-import ContextTask from "./context/ContextoTask";
+import ContextoTask from "./context/ContextoTask";
 
 function App() {
 
   return (
     <>
-    <ContextTask>
+    <ContextoTask>
       <Header/>
       <TaskList/>
-      </ContextTask>
+      </ContextoTask>
     </>
   );
 }

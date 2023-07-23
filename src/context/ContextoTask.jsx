@@ -1,7 +1,7 @@
 import { MiContexto } from "./crearContexto"
 import { useTasks } from "../hooks/useTasks"
     
-const ContextTask = ({children}) =>{
+const ContextoTask = ({children}) =>{
     const [tareasList,setTarea, addTarea, deleteTarea, editarTarea, checkTarea] = useTasks();
     return(
         <>
@@ -12,4 +12,4 @@ const ContextTask = ({children}) =>{
     )
 }
 
-export default ContextTask;
+export default ContextoTask;
