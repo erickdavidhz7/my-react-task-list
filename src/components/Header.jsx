@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Task from "./Task";
+import TaskList from "./TaskList";
 
 export default function Header() {
   const [tareasList, setTarea] = useState([]);
@@ -42,9 +42,7 @@ export default function Header() {
         </button>
       </form>
       <div>
-        {tareasList.map((tarea, id) => {
-          return <Task key={id} id={id} nombreTarea={tarea.nombreTarea} estadoTarea={tareasList.estadoTarea} descripcion={tarea.descripcion} stateChanger={setTarea}></Task>;
-        })}
+       <TaskList tareasList={tareasList}/>
       </div>
     </div>
   );
