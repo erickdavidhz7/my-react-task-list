@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 export default function Task(props, stateChanger){
-    const {nombreTarea, estadoTarea, descripcion } = props;
-    const {tareasList} = props;
+    const {nombreTarea, descripcion } = props;
 
     const [checkeado, setCheckeado] = useState(false);
 

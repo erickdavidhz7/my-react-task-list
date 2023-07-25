@@ -5,7 +5,7 @@ export default function TaskList(props) {
   return (
     <div className="taskList">
       {tareasList.map((tarea, index) => {
-        return <Task key={index} id={tarea.id} nombreTarea={tarea.nombreTarea} estadoTarea ={tareasList.estadoTarea}></Task>;
+        return <Task key={index} nombreTarea={tarea.nombreTarea} estadoTarea ={tareasList.estadoTarea}></Task>;
       })}
     </div>
   );
