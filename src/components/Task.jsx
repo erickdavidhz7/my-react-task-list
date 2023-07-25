@@ -17,18 +17,6 @@ export default function Task(props, stateChanger){
           .join('')
       }
 
-    const editarTareaDescripcion = () => {
-        const nuevoEstadoTarea = tareasList.map(tarea =>{
-            if(tarea.nombreTarea == nombreTarea){
-                return {...tarea , descripcion: "¡Se ha cambiado la descripción!"}
-            }
-
-            return tarea;
-        });
-
-        return nuevoEstadoTarea;
-        
-    }
 
     return(
     <div className="task">
