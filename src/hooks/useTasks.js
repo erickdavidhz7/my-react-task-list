@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export function useTasks() {
-  //const defaultId = localStorage.getItem("id") ? parseInt(localStorage.getItem("id")) : 0;
+  //const defaultId = localStorage.getItem("id") ? parseInt(localStorage.getItem("id")) : 0; conditional ternary
   let defaultId = localStorage.getItem("id") ?? 0; // nullish coalescing/ coalescencia nula
   defaultId = parseInt(defaultId);
   const [tareasList, setTarea] = useState([]);
@@ -11,7 +11,7 @@ export function useTasks() {
     const tareaObjeto = {
       id: id,
       nombre: nuevaTarea,
-      descripcion: "Descripción: template",
+      descripcion: "Editar tarea para cambiar la descripción",
       estado: false,
     };
 
