@@ -8,7 +8,6 @@ export function useTasks() {
   const [id, setId] = useState(defaultId);
 
   function addTarea(nuevaTarea, descripcion = "Editar tarea para cambiar la descripción") {
-    
     const tareaObjeto = {
       id: id,
       nombre: nuevaTarea,
@@ -28,8 +27,8 @@ export function useTasks() {
     setTarea(nuevaTareasList);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
-  function deleteAllTareas(){
-    let nuevaTareasList = []
+  function deleteAllTareas() {
+    let nuevaTareasList = [];
     setTarea([]);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
