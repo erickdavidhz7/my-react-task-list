@@ -239,6 +239,7 @@ button:focus-visible {
 }
 
 .Footer{
+  width: 45em;
   margin-top: 15px;
   display: flex;
   justify-content: space-around;
