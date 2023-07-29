@@ -1,4 +1,4 @@
-const CheckBoxBonito = (props) =>{
+const Checkbox = (props) =>{
     const{onChange, defaultChecked} = props;
     return(<>
         <label className="toggler-wrapper style-1">
@@ -12,4 +12,4 @@ const CheckBoxBonito = (props) =>{
 } 
 
 
-export default CheckBoxBonito;
+export default Checkbox;

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { MiContexto } from "../context/crearContexto";
 import TaskEdit from "./TaskEdit";
-import CheckBoxBonito from "./CheckBoxBonito";
+import Checkbox from "./CheckBox";
 
 export default function Task(props) {
   const { idTarea, nombreTarea, estadoTarea, descripcion } = props;
@@ -36,7 +36,7 @@ export default function Task(props) {
       ) : (
         <div className="task">
           <form id="tituloTarea">
-            <CheckBoxBonito onChange={handleChange} defaultChecked={checkeado} />
+            <Checkbox onChange={handleChange} defaultChecked={checkeado} />
             <label id="nombreTarea">{checkeado ? strikeThrough(nombreTarea) : nombreTarea}</label>
           </form>
           <div id="botonesTarea">
