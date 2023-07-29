@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header";
 import TaskList from "./components/TaskList";
 import ContextoTask from "./context/ContextoTask";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <ContextoTask>
       <Header/>
       <TaskList/>
+      <Footer/>
       </ContextoTask>
     </>
   );

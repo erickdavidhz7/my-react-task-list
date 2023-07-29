@@ -35,10 +35,12 @@ export default function Task(props) {
         <TaskEdit idTarea={idTarea} nombreTarea={nombreTarea} estadoTarea={estadoTarea} descripcion={descripcion} setIsShown={setIsShown} />
       ) : (
         <div className="task">
-          <form id="tituloTarea">
-            <Checkbox onChange={handleChange} defaultChecked={checkeado} />
-            <label id="nombreTarea">{checkeado ? strikeThrough(nombreTarea) : nombreTarea}</label>
-          </form>
+          {
+            <form id="tituloTarea">
+              <Checkbox onChange={handleChange} defaultChecked={checkeado} />
+              <label id="nombreTarea">{checkeado ? strikeThrough(nombreTarea) : nombreTarea}</label>
+            </form>
+          }
           <div id="botonesTarea">
             <button type="button" id="editarTarea" onClick={handleEditarTareaClick}>
               Editar

@@ -7,11 +7,12 @@ export function useTasks() {
   const [tareasList, setTarea] = useState([]);
   const [id, setId] = useState(defaultId);
 
-  function addTarea(nuevaTarea) {
+  function addTarea(nuevaTarea, descripcion = "Editar tarea para cambiar la descripción") {
+    
     const tareaObjeto = {
       id: id,
       nombre: nuevaTarea,
-      descripcion: "Editar tarea para cambiar la descripción",
+      descripcion: descripcion,
       estado: false,
     };
 
@@ -25,6 +26,11 @@ export function useTasks() {
   function deleteTarea(id) {
     let nuevaTareasList = tareasList.filter((tarea) => tarea.id !== id);
     setTarea(nuevaTareasList);
+    localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
+  }
+  function deleteAllTareas(){
+    let nuevaTareasList = []
+    setTarea([]);
     localStorage.setItem("tareasList", JSON.stringify(nuevaTareasList));
   }
 
@@ -57,5 +63,5 @@ export function useTasks() {
     }
   }, []);
 
-  return [tareasList, setTarea, addTarea, deleteTarea, editarTarea, checkTarea];
+  return [tareasList, setTarea, addTarea, deleteTarea, deleteAllTareas, editarTarea, checkTarea];
 }
