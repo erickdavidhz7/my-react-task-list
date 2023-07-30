@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { MiContexto } from "../context/crearContexto";
 import TaskEdit from "./TaskEdit";
-import Checkbox from "./CheckBox";
+import Checkbox from "./Checkbox";
 
 export default function Task(props) {
   const { idTarea, nombreTarea, estadoTarea, descripcion } = props;
