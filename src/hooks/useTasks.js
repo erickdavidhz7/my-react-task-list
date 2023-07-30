@@ -7,7 +7,7 @@ export function useTasks() {
   const [tareasList, setTarea] = useState([]);
   const [id, setId] = useState(defaultId);
 
-  function addTarea(nuevaTarea, descripcion = "Editar tarea para cambiar la descripción") {
+  function addTarea(nuevaTarea, descripcion) {
     const tareaObjeto = {
       id: id,
       nombre: nuevaTarea,

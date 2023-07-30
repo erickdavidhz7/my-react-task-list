@@ -105,7 +105,10 @@ button:focus-visible {
 }
 
 .listaTask {
+  width: 42em;
   margin-top: 0px;
+  overflow-y: scroll;
+  max-height: 590px;
 }
 
 .inputBar {
