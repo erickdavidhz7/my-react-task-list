@@ -25,7 +25,7 @@ export default function Task(props) {
     deleteTarea(idTarea);
   };
 
-  const handleEditarTareaClick = (event) => {
+  const handleEditarTareaClick = () => {
     setIsShown((current) => !current);
   };
 
