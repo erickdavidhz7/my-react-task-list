@@ -12,8 +12,7 @@ function App() {
   return (
     <div>
       <Suspense fallback={<div>Cargando...</div>}>
-      <h1>Listado de tareas</h1>
-      <h2>Menu de navegación</h2>
+      <h1>Menu de navegación</h1>
       <Menu/>
       <hr/>
       <Routes>
