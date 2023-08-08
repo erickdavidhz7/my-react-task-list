@@ -249,3 +249,15 @@ button:focus-visible {
   justify-content: space-around;
   flex-direction: row;
 }
+
+.Menu {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+}
+
+.Menu a {
+  padding: 0px 5px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}

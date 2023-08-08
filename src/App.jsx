@@ -1,19 +1,28 @@
 import "./App.css";
-import Header from "./components/Header";
-import TaskList from "./components/TaskList";
-import ContextoTask from "./context/ContextoTask";
-import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import Menu from "./components/Menu";
+import { Suspense, lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home"))
+const SobreNosotros = lazy(() => import("./pages/SobreNosotros"))
+const Tareas = lazy(() => import("./pages/Tareas"))
 
 function App() {
 
   return (
-    <>
-    <ContextoTask>
-      <Header/>
-      <TaskList/>
-      <Footer/>
-      </ContextoTask>
-    </>
+    <div>
+      <Suspense fallback={<div>Cargando...</div>}>
+      <h1>Listado de tareas</h1>
+      <h2>Menu de navegación</h2>
+      <Menu/>
+      <hr/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path="/tareas" element={<Tareas/>} />
+        <Route path="/Sobre_Nosotros" element={<SobreNosotros/>}></Route>
+      </Routes>
+      </Suspense>
+    </div>
   );
 }
 
