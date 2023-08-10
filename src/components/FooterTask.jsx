@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { MiContexto } from "../context/crearContexto";
 
-export default function Footer() {
+export default function FooterTask() {
   const { tareasList, deleteAllTareas } = useContext(MiContexto);
   let numeroTareasPendientes = tareasList.filter((tarea) => !tarea.estado).length;
 

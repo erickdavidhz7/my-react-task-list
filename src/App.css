@@ -109,7 +109,7 @@ button:focus-visible {
   width: 42em;
   margin-top: 0px;
   overflow-y: scroll;
-  max-height: 590px;
+  max-height: 490px;
 }
 
 .inputBar {

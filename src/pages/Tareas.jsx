@@ -1,15 +1,15 @@
-import Header from "../components/Header";
+import HeaderTask from "../components/HeaderTask";
 import TaskList from "../components/TaskList";
 import ContextoTask from "../context/ContextoTask";
-import Footer from "../components/Footer";
+import FooterTask from "../components/FooterTask";
 
 export default function Tareas() {
   return (
     <div>
       <ContextoTask>
-        <Header />
+        <HeaderTask />
         <TaskList />
-        <Footer />
+        <FooterTask/>
       </ContextoTask>
     </div>
   );

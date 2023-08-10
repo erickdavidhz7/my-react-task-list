@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { MiContexto } from "../context/crearContexto";
 
 export default function TaskEdit(props) {
-  const { idTarea, nombreTarea, estadoTarea, descripcion, setIsShown } = props;
+  const { idTarea, nombreTarea, descripcion, setIsShown } = props;
   const [inputNombre, setInputNombre] = useState(nombreTarea);
   const [inputDescripcion, setInputDescripcion] = useState(descripcion);
 
