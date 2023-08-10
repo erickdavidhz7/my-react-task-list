@@ -5,7 +5,7 @@ import FooterTask from "../components/FooterTask";
 
 export default function Tareas() {
   return (
-    <div>
+    <div className="tareas-page">
       <ContextoTask>
         <HeaderTask />
         <TaskList />

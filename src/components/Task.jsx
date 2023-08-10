@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { MiContexto } from "../context/crearContexto";
 import TaskEdit from "./TaskEdit";
 import Checkbox from "./Checkbox";
+import {DeleteIcon, EditIcon } from "@chakra-ui/icons"
+import { IconButton } from '@chakra-ui/react'
 
 export default function Task(props) {
   const { idTarea, nombreTarea, estadoTarea, descripcion } = props;
@@ -42,12 +44,11 @@ export default function Task(props) {
             </form>
           }
           <div id="botonesTarea">
-            <button type="button" id="editarTarea" onClick={handleEditarTareaClick}>
-              Editar
-            </button>
-            <button type="button" id="eliminarTarea" onClick={handleEliminarTareaClick}>
-              Eliminar
-            </button>
+            
+            <IconButton icon={<EditIcon/>}  type="button" id="editarTarea" onClick={handleEditarTareaClick}>
+            </IconButton>
+            <IconButton icon={<DeleteIcon/>}  type="button" id="eliminarTarea" onClick={handleEliminarTareaClick}>
+            </IconButton>
           </div>
           <p id="descripcionTarea">{descripcion}</p>
         </div>

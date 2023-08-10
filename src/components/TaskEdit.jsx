@@ -21,13 +21,11 @@ export default function TaskEdit(props) {
         </label>
       </form>
       <div id="botonesTarea">
-        <button type="button" id="editarTarea" onClick={handleGuardarCambiosClick}>
+        <button type="button" id="guardarEditarTarea" onClick={handleGuardarCambiosClick}>
           Guardar Cambios
         </button>
       </div>
-      <p id="descripcionTarea">
-        <input id="nuevaDescripcionTarea" defaultValue={descripcion} type="text" onChange={(e) => setInputDescripcion(e.target.value)}></input>
-      </p>
+      <input id="nuevaDescripcionTarea" defaultValue={descripcion} type="text" onChange={(e) => setInputDescripcion(e.target.value)}></input>
     </div>
   );
 }
