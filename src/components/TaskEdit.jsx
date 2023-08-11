@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { MiContexto } from "../context/crearContexto";
+import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
+import { IconButton, Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
 
 export default function TaskEdit(props) {
   const { idTarea, nombreTarea, descripcion, setIsShown } = props;
@@ -13,6 +15,10 @@ export default function TaskEdit(props) {
     setIsShown((previous) => !previous);
   };
 
+  const handleCancelarCambiosClick = () => {
+    setIsShown((previous) => !previous);
+  };
+
   return (
     <div className="task">
       <form id="tituloTarea">
@@ -21,9 +27,8 @@ export default function TaskEdit(props) {
         </label>
       </form>
       <div id="botonesTarea">
-        <button type="button" id="guardarEditarTarea" onClick={handleGuardarCambiosClick}>
-          Guardar Cambios
-        </button>
+        <IconButton type="button" id="guardarEditarTarea" icon={<CheckIcon />} onClick={handleGuardarCambiosClick}></IconButton>
+        <IconButton type="button" id="cancelarEditarTarea" icon={<CloseIcon />} onClick={handleCancelarCambiosClick}></IconButton>
       </div>
       <input id="nuevaDescripcionTarea" defaultValue={descripcion} type="text" onChange={(e) => setInputDescripcion(e.target.value)}></input>
     </div>
