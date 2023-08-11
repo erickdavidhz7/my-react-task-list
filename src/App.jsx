@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div>
-      <Suspense fallback={<div>Cargando...</div>}>
-      <Heading>Menu de navegación</Heading>
+      <Suspense fallback={<Heading>Cargando...</Heading>}>
+      <Heading paddingLeft="25px">Menu de navegación</Heading>
       <Menu/>
       <hr/>
       <Routes>
