@@ -31,7 +31,7 @@ button:focus-visible {
 .headerComp {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.5fr;
+  grid-template-rows: 5rem 0.5fr;
   align-items: center;
   margin-left: -15px;
 }
@@ -61,6 +61,7 @@ button:focus-visible {
 }
 #txt2 {
   margin-top: 15px;
+  margin-bottom: 10px;
   font-size: 1em;
   border-radius: 5px;
   border-width: 2px;
@@ -116,7 +117,7 @@ button:focus-visible {
 
 .listaTask {
   width: 42em;
-  margin-top: 0px;
+  margin-top: -20px;
   overflow-y: scroll;
   max-height: 490px;
 }
