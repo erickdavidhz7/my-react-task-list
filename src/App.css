@@ -317,3 +317,8 @@ button:focus-visible {
 .tareas-page{
   padding-left: 15px;
 }
+
+.linksMenu:hover{
+  background-color: #B2F5EA;
+
+}

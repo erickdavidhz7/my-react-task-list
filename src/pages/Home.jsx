@@ -1,8 +1,9 @@
+import { Heading } from '@chakra-ui/react'
+
 export default function Home(){
     return(
         <div>
-            <h1>¡Bienvenido a esta página web de listado de tareas!</h1>
-            <h2></h2>
+            <Heading>¡Bienvenido a esta página web de listado de tareas!</Heading>
         </div>
     )
 }

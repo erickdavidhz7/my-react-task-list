@@ -2,6 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Menu from "./components/Menu";
 import { Suspense, lazy } from "react";
+import { Heading } from "@chakra-ui/react";
 
 const Home = lazy(() => import("./pages/Home"))
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"))
@@ -12,7 +13,7 @@ function App() {
   return (
     <div>
       <Suspense fallback={<div>Cargando...</div>}>
-      <h1>Menu de navegación</h1>
+      <Heading>Menu de navegación</Heading>
       <Menu/>
       <hr/>
       <Routes>
