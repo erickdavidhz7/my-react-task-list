@@ -10,7 +10,7 @@ export default function FooterTask() {
   };
   return (
     <div className="Footer">
-      <p>Tienes {numeroTareasPendientes} tareas pendientes</p>
+      <p className="tareasPendientes">Tienes {numeroTareasPendientes} tareas pendientes</p>
       <button type="button" id="eliminarTodasTarea" onClick={eliminarTodasTareas}>
         Limpiar Todo
       </button>
