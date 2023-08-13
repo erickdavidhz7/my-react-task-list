@@ -1,30 +1,31 @@
 import { Link } from "react-router-dom";
 import Toggle from "./Toggle";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@chakra-ui/react";
+import { Breadcrumb, BreadcrumbItem } from "@chakra-ui/react";
 
 export default function Menu() {
   return (
     <div className="Menu">
-      <Breadcrumb separator='-'>
+      <Breadcrumb separator="-">
         <BreadcrumbItem>
-            {" "}
-            <Link className="linksMenu" to="/">
-              Home
-            </Link>
+          {" "}
+          <Link className="linksMenu" to="/">
+            Home
+          </Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem>
-            <Link className="linksMenu" to="/tareas">
-              Aplicación de Tareas
-            </Link>
+          <Link className="linksMenu" to="/tareas">
+            Aplicación de Tareas
+          </Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem>
-            <Link className="linksMenu" to="/Sobre_Nosotros">
-              Sobre Nosotros
-            </Link>
+          <Link className="linksMenu" to="/Sobre_Nosotros">
+            Sobre Nosotros
+          </Link>
         </BreadcrumbItem>
-      </Breadcrumb>-
+      </Breadcrumb>
+      -
       <Toggle />
     </div>
   );
