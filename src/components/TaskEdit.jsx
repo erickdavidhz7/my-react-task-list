@@ -30,8 +30,8 @@ export default function TaskEdit(props) {
         </label>
       </form>
       <div id="botonesTarea">
-        <IconButton type="button" colorScheme="blue" marginTop="7px" marginLeft="15px" marginRight="15px" width="45px"  icon={<CheckIcon />} onClick={onOpen}></IconButton>
-        <IconButton type="button" colorScheme="red" marginTop="7px" marginRight="15px" width="45px"  icon={<CloseIcon />} onClick={handleCancelarCambiosClick}></IconButton>
+        <IconButton type="button" variant="outline" colorScheme="blue"  marginTop="7px" marginLeft="15px" marginRight="15px" width="45px"  icon={<CheckIcon />} onClick={onOpen}></IconButton>
+        <IconButton type="button" variant="outline" colorScheme="red" marginTop="7px" marginRight="15px" width="45px"  icon={<CloseIcon />} onClick={handleCancelarCambiosClick}></IconButton>
 
         <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
           <AlertDialogOverlay>

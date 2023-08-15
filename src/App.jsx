@@ -13,16 +13,14 @@ function App() {
     <div>
       <Suspense
         fallback={
-          <Spinner thickness="4px" marginLeft="80px" marginTop="120px" size="xl">
-            Cargando...
-          </Spinner>
+          <Spinner thickness="4px" marginLeft="80px" marginTop="120px" size="xl"/>
         }
       >
         <Heading paddingLeft="25px" as="h1">
           Menu de navegación
         </Heading>
         <Menu />
-        <hr />
+        <hr className="hr" />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/tareas" element={<Tareas />} />

@@ -47,8 +47,8 @@ export default function Task(props) {
             </form>
           }
           <div id="botonesTarea">
-            <IconButton icon={<EditIcon />} type="button" colorScheme="blue" marginRight="15px" width="45px" onClick={handleEditarTareaClick}></IconButton>
-            <IconButton icon={<DeleteIcon />} type="button" colorScheme="red" marginRight="15px" width="45px" onClick={onOpen}></IconButton>
+            <IconButton icon={<EditIcon />} type="button" variant="outline" colorScheme="blue"  marginRight="15px" width="45px" onClick={handleEditarTareaClick}></IconButton>
+            <IconButton icon={<DeleteIcon />} type="button" variant="outline" colorScheme="red" marginRight="15px" width="45px" onClick={onOpen}></IconButton>
             <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
               <AlertDialogOverlay>
                 <AlertDialogContent>
